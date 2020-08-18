@@ -50,7 +50,7 @@ Source::Source(char* sname,double S):Element(sname){
     voltage=S;
 };
 
-//IDK
+
 
 class ArrayElements{
 protected:
@@ -59,7 +59,7 @@ protected:
     int cant;
 public:
     ArrayElements(int);
-    void addElement(int,char*);
+    void addElement();
     double getCurrent();
     double getVoltage(int);
 
@@ -73,27 +73,27 @@ ArrayElements::ArrayElements(int n){
 
 
 
-void ArrayElements::addElement(int tipo,char* nelement){
+void ArrayElements::addElement(){
     double value;
-    if (cant<size) {
+    char nelement[9]={"sinmobre"};
+    int tipo;
+    for (int i=0;i<size;i++) {
+    cout<<"Ingrese el tipo de elemnto"<<endl<<"1 Resistor"<<endl<<"2 Fuente de voltaje"<<endl;
+    cin>>tipo;
+
         switch (tipo) {
         case 1:
             cout<<"Ingrese el valor de la resistencia en ohmios:"<<endl;
             cin>>value;
-            Array[cant]=new Resistor(nelement,value);
+            Array[i]=new Resistor(nelement,value);
             break;
         case 2:
             cout<<"Ingrese el valor del voltaje de la fuente en voltios:"<<endl;
             cin>>value;
-            Array[cant]=new Source(nelement,value);
+            Array[i]=new Source(nelement,value);
             break;
-        }
-       cant++;
-    }
-
-   else cout<<"F"<<endl;
-
-};
+        }}
+        };
 
 
 double ArrayElements::getCurrent(){
@@ -114,11 +114,11 @@ double ArrayElements::getCurrent(){
     return Current;
 };
 
-//En teoria n representa la posicion del elemento en el arreglo
+
 double ArrayElements::getVoltage(int n){
     int ArrayVoltages[size];
 
-    for (int i=0;i<3;i++) {
+    for (int i=0;i<size;i++) {
         switch (Array[i]->getType()) {
         case 0:
             ArrayVoltages[i]=Array[i]->getValue()*getCurrent();
@@ -130,3 +130,16 @@ double ArrayElements::getVoltage(int n){
     }
     return ArrayVoltages[n];
 };
+
+int main(){
+    int numero,n;
+    cout<<"Ingrese el numero de elementos en la malla"<<endl;
+    cin>>n;
+    ArrayElements Array(n);
+    Array.addElement();
+    cout<<"Corriente en la malla: "<<Array.getCurrent()<<"[A]"<<endl;
+    cout<<"ingrese el numero de elemento del que desea saber su voltje"<<endl;
+    cin>>numero;
+    cout<<"Voltaje en el elemento"<<Array.getVoltage(numero)<<"[V]"<<endl;
+
+}
