@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Recursos/Resistor.jpg</file>
+        <file>Recursos/Sourcej.jpg</file>
+    </qresource>
+</RCC>
