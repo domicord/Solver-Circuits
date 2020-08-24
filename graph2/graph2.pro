@@ -16,13 +16,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    arrayelements.cpp \
     element.cpp \
+    elemento.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    resistor.cpp \
+    source.cpp
 
 HEADERS += \
+    arrayelements.h \
     element.h \
-    mainwindow.h
+    elemento.h \
+    mainwindow.h \
+    resistor.h \
+    source.h
 
 FORMS += \
     mainwindow.ui
@@ -33,4 +41,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    Img.qrc
+    img.qrc

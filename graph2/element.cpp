@@ -12,19 +12,20 @@ Element::Element(bool P){
 
 QRectF Element::boundingRect() const
 {
-    return QRectF(0,0,100,100);
+
+    return QRectF(0,0,141,141);
 }
 
 void Element::paint(QPainter *painter, const QStyleOptionGraphicsItem *opcion, QWidget *widget)
 {
     QRectF rec= boundingRect();
-    QBrush brush(Qt::black);
+    QBrush brush(QPixmap(":/Recursos/resistror141.jpg"));
     if(Pressed){
-      brush.setColor(Qt::gray);
+      brush.setTexture(QPixmap(":/Recursos/resistror141.jpg"));
 
     }
     else{
-      brush.setColor(Qt::black);
+      brush.setTexture(QPixmap(":/Recursos/source141.jpg"));
     }
     painter->fillRect(rec,brush);
     painter->drawRect(rec);

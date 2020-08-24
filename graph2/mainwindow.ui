@@ -17,21 +17,24 @@
    <widget class="QGraphicsView" name="Scene">
     <property name="geometry">
      <rect>
-      <x>5</x>
-      <y>21</y>
-      <width>771</width>
-      <height>501</height>
+      <x>180</x>
+      <y>0</y>
+      <width>611</width>
+      <height>541</height>
      </rect>
     </property>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>60</y>
-      <width>141</width>
-      <height>271</height>
+      <x>20</x>
+      <y>50</y>
+      <width>111</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
     </property>
     <property name="text">
      <string>Results</string>
@@ -40,14 +43,59 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>280</y>
+      <x>20</x>
+      <y>210</y>
       <width>93</width>
       <height>28</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Calcular</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>150</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>115</y>
+      <width>101</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>16</y>
+      <width>101</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
     </property>
    </widget>
   </widget>
@@ -64,8 +112,8 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionAddResistor">
    <property name="icon">
-    <iconset resource="Img.qrc">
-     <normaloff>:/Recursos/Resistor.jpg</normaloff>:/Recursos/Resistor.jpg</iconset>
+    <iconset resource="img.qrc">
+     <normaloff>:/Recursos/resistror141.jpg</normaloff>:/Recursos/resistror141.jpg</iconset>
    </property>
    <property name="text">
     <string>AddResistor</string>
@@ -73,8 +121,8 @@
   </action>
   <action name="actionAddSource">
    <property name="icon">
-    <iconset resource="Img.qrc">
-     <normaloff>:/Recursos/Sourcej.jpg</normaloff>:/Recursos/Sourcej.jpg</iconset>
+    <iconset resource="img.qrc">
+     <normaloff>:/Recursos/source141.jpg</normaloff>:/Recursos/source141.jpg</iconset>
    </property>
    <property name="text">
     <string>AddSource</string>
@@ -82,7 +130,7 @@
   </action>
  </widget>
  <resources>
-  <include location="Img.qrc"/>
+  <include location="img.qrc"/>
  </resources>
  <connections/>
 </ui>

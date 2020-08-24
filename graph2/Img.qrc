@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>Recursos/Resistor.jpg</file>
-        <file>Recursos/Sourcej.jpg</file>
+        <file>Recursos/resistror141.jpg</file>
+        <file>Recursos/source141.jpg</file>
     </qresource>
 </RCC>

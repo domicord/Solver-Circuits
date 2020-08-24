@@ -28,7 +28,12 @@ private:
     Element *elemento;
 public slots:
     void newResistor();
+    int* DatNewResistor();
     void newSource();
+    int* DatNewSource();
+    void resutado();
 
+private slots:
+    void on_pushButton_clicked();
 };
 #endif // MAINWINDOW_H
