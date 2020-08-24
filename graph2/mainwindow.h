@@ -31,8 +31,10 @@ public slots:
     int* DatNewResistor();
     void newSource();
     int* DatNewSource();
-    void resutado();
 
+signals:
+    void ResistorPulsado(int);
+    void SourcePulsado(int);
 private slots:
     void on_pushButton_clicked();
 };

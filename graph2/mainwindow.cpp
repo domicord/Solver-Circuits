@@ -46,63 +46,61 @@ void MainWindow::createToolBars()
 
 void MainWindow::connectActions(){
     connect(ui->actionAddResistor,SIGNAL(triggered()),this,SLOT(newResistor()));
-    connect(ui->actionAddResistor,SIGNAL(triggered()),this,SLOT(DatNewResistor()));
+    connect(ui->actionAddResistor,SIGNAL(triggered()),this,SLOT(count()));
+    //connect(ui->actionAddResistor,SIGNAL(triggered()),this,SLOT(DatNewResistor()));
     connect(ui->actionAddSource,SIGNAL(triggered()),this,SLOT(newSource()));
-    connect(ui->actionAddSource,SIGNAL(triggered()),this,SLOT(DatNewSource()));
+    connect(ui->actionAddSource,SIGNAL(triggered()),this,SLOT(count()));
+    //connect(ui->actionAddSource,SIGNAL(triggered()),this,SLOT(DatNewSource()));
+
 }
 
-
+int contador1=0;
 void MainWindow::newResistor(){
+    elemento= new Element(true);
+    scene->addItem(elemento);
+     ++contador1;
 
 }
+
+int contador=0;
 void MainWindow::newSource(){
- ;
-}
+    elemento= new Element(false);
+    scene->addItem(elemento);
+    ++contador;
 
+}
+int* Resistencias;
 int* MainWindow::DatNewResistor(){
-    int n= QInputDialog::getInt(this,"Entrada","Ingrese el numero de resistencias");
-    int Resistencias[n];
-    for (int i=0;i<n;i++) {
+    Resistencias= new int[contador1];
+    for (int i=0;i<contador1;i++) {
       Resistencias[i]=QInputDialog::getInt(this,"Entrada","Ingrese resistencia");
-      elemento= new Element(true);
-      scene->addItem(elemento);
+
 
   }
-    return Resistencias;
+  return Resistencias;
     }
-
+int* Fuentes;
 int* MainWindow::DatNewSource() {
-    int n= QInputDialog::getInt(this,"Entrada","Ingrese el numero de Fuentes");
-    int Fuentes[n];
-    for (int i=0;i<n;i++) {
+     Fuentes= new int[contador];
+    for (int i=0;i<contador;i++) {
       Fuentes[i]=QInputDialog::getInt(this,"Entrada","Ingrese el voltaje");
-      elemento= new Element(false);
-      scene->addItem(elemento);
+
 
   }
     return Fuentes;
 }
 
-void MainWindow::resutado()
-{
-    ArrayElements arreglo(5);
-    int* ares=DatNewResistor();
-    int* asou=DatNewSource();
-    arreglo.addElement(ares,asou,3,2);
-    ui->label->setText(QString::number(arreglo.getCurrent()));
-    ui->label->setText("F");
-
-}
 
 
 void MainWindow::on_pushButton_clicked()
 {
-    ArrayElements arreglo(5);
-    int ares[3]={2,2,2};
-    int asou[2]={3,3};
-    arreglo.addElement(ares,asou,3,2);
+
+    ArrayElements arreglo(contador+contador1);
+    int* a= DatNewSource();
+    int* b= DatNewResistor();
+    arreglo.addElement(b,a,contador1,contador);
     double n=arreglo.getCurrent();
-    double m=arreglo.getVoltage(3);
+    double m=arreglo.getVoltage(0);
     ui->label->setText(QString::number(n));
     ui->label_2->setText(QString::number(m));
 
